@@ -223,50 +223,56 @@ python zeta_coupling_analysis.py 100003
 
 ### Key Findings
 
-**SIGNIFICANT STATISTICAL EVIDENCE DETECTED**
+**UPDATE: ZETA COUPLING FALSIFIED VIA CONTROL TESTS**
 
-1. **GUE-like Spectral Statistics**: All test primes (1009-10007) show statistics closer to GUE than Poisson
-   - GUE = signature of quantum chaos, seen in Riemann Zeta zeros
-   - All 4 primes: KS(GUE) < KS(Poisson) with level repulsion
+Initial investigation showed promising correlations (p < 0.0001), but maximum-scale testing with full control battery revealed these are **geometric artifacts**:
 
-2. **K=4 Critical Uniqueness**: Sharp transition at K=4
-   - K=4: 100% survival (perfect stability)
-   - K≠4: ~2% survival (rapid ejection)
-   - Analogous to critical line Re(s)=1/2 in Riemann hypothesis
+1. **Shuffled Control Test** (CRITICAL): ✗ FAILED
+   - Randomly shuffling survivor positions produces **identical** distance statistics
+   - p-value = 1.0 (no difference between true and shuffled positions)
+   - **Conclusion**: Position doesn't matter, only density (25% coverage)
 
-3. **Direct Zeta Zero Correlation**: Survivors correlate with known Zeta zero positions
-   - **p-value < 0.0001** (highly significant)
-   - Fiber states cluster 11× closer to zeros than random expectation
-   - Tested against first 30 verified Zeta zeros
+2. **Density Artifact**:
+   - K=4 safe window contains 25% of all residues mod p
+   - High density guarantees proximity to any target sequence
+   - Nothing specific to Zeta zeros
 
-4. **Perfect Memory**: K=4 trajectories are exactly constant
-   - Zero autocorrelation (no variance)
-   - Perfect preservation of initial conditions
+3. **Uniform Grid Artifact**:
+   - Survivors form regular integer progression {0,1,2,3,...}
+   - Perfect spacing (gap = 1) creates maximal coverage
+   - Geometric optimization, not number-theoretic structure
+
+4. **Large Prime Scaling**: All primes (10K-1M) show "correlation"
+   - But shuffled control fails at all scales
+   - Geometric artifacts scale consistently
 
 ### Critical Assessment
 
-**Status**: Upgraded from "motivational analogy" to **"suggestive evidence pending confirmation"**
+**Status**: ~~"Suggestive evidence"~~ → **FALSIFIED** → Restored to "motivational analogy only"
 
-**Evidence strength**: Multiple independent tests show consistent patterns
+**What the control tests revealed**:
+- ✗ GUE statistics: Artifact of uniform integer spacing, not quantum chaos
+- ✗ Direct correlation: Due to 25% density + uniform grid, not Zeta structure
+- ✗ Statistical significance real, but causally meaningless (geometric, not structural)
+- ✓ K=4 exact invariance: Still valid (proven mathematically, independent of Zeta)
 
-**Confounding factors requiring investigation**:
-- GUE artifact from uniform spacing?
-- Density artifact (25% of residues in safe window)?
-- Modular arithmetic effects?
-- Need tests with p > 10⁶ and 1000+ zeros
+**The Smoking Gun**: When survivor positions are shuffled (keeping same density), correlation **persists identically**. This definitively proves the "correlation" is geometric, not positional.
 
-**Honest conclusion**: Evidence is stronger than initially expected. The p < 0.0001 correlation cannot be dismissed as coincidence. However, confounds must be systematically eliminated before claiming proven coupling.
+**Lesson Learned**: p-values < 0.0001 can be statistically significant yet causally meaningless. Control tests are essential.
 
-See `ZETA_COUPLING_FINDINGS.md` for detailed analysis and recommended next steps.
+See `FINAL_VERDICT.md` for complete falsification analysis.
 
 ## Repository Structure
 
 ```
 .
 ├── README.md                           # This file
-├── verification_suite.py               # Basic verification tests
-├── zeta_coupling_analysis.py           # Extended Zeta coupling investigation
-├── ZETA_COUPLING_FINDINGS.md           # Detailed findings and analysis
+├── verification_suite.py               # Basic verification tests (K=4 invariance: PASS)
+├── zeta_coupling_analysis.py           # Initial Zeta investigation (showed correlation)
+├── maximum_scale_analysis.py           # Control test battery (FALSIFIED correlation)
+├── final_diagnostic_test.py            # Uniform grid artifact demonstration
+├── ZETA_COUPLING_FINDINGS.md           # Initial findings (pre-falsification)
+├── FINAL_VERDICT.md                    # Definitive falsification analysis
 ├── collatz_zeta_foundations.tex        # LaTeX mathematical documentation
 └── collatz_zeta_foundations.pdf        # Compiled PDF (manual commit)
 ```
@@ -290,21 +296,32 @@ This work demonstrates:
 
 ### Relationship to Zeta Zeros
 
-**UPDATE**: Extended analysis reveals **suggestive statistical evidence** beyond initial motivation:
+**FINAL STATUS**: Connection **falsified** via rigorous control testing.
 
-- ✓ System uses similar arithmetic machinery (large primes, multiplicative structure)
-- ✓ Spectral statistics match GUE (like Zeta zeros), not Poisson (p < 0.0001)
-- ✓ K=4 exhibits critical line analog (unique stability)
-- ⚠ **Statistical correlation with Zeta zero positions** (p < 0.0001, 11× closer than random)
-- ✗ Mechanism for correlation not yet understood
-- ✗ Confounding factors not yet ruled out (density, uniformity, modular effects)
+**What we tested**:
+- ✓ Large primes (up to 1,000,003)
+- ✓ 100+ verified Zeta zeros
+- ✓ Full control battery (shuffled, sparse, random)
+- ✓ Alternative K values
 
-**Current status**: Evidence is stronger than expected, but requires confirmation with:
-- Larger primes (p > 10⁶)
-- More Zeta zeros (1000+)
-- Control tests to eliminate artifacts
+**What we found**:
+- ✗ **Shuffled control FAILED** (smoking gun): Position irrelevant, only density matters
+- ✗ GUE statistics: Artifact of uniform integer spacing
+- ✗ Direct correlation: Geometric artifact from 25% density + regular grid
+- ✗ Statistical significance (p < 0.0001) was real but causally meaningless
 
-The work probes genuine arithmetic structure, but **proven functional coupling** requires further investigation. See `ZETA_COUPLING_FINDINGS.md` for complete analysis.
+**Conclusion**: The "correlation" is due to:
+1. **Density**: 25% of residues are survivors (high coverage)
+2. **Uniformity**: Survivors = {0,1,2,3,...} (perfect spacing)
+3. **Geometry**: Dense uniform grids minimize distance to any target
+
+These are **geometric properties**, not number-theoretic connections to Zeta zeros.
+
+**Current status**: Zeta connection is **motivational analogy only** (original assessment restored).
+
+The K=4 invariance result remains valid and valuable independent of Zeta.
+
+See `FINAL_VERDICT.md` for complete analysis and honest assessment.
 
 ## Technical Notes
 
